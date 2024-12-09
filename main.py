@@ -35,6 +35,13 @@ def ver_contatos_favoritos(contatos):
             print(f"{indice}. {contato["Nome"]}, Telefone: {contato["Telefone"]}, E-mail: {contato["E-mail"]}, Favorito: [✓]")
     return
 
+def deletar_contato(contatos, indice_contato):
+    for indice, contato in enumerate(contatos):
+        if indice == indice_contato - 1:
+            contatos.remove(contato)
+    print("Contato deletado(a) com sucesso.")
+    return
+
 contatos = []
 while True:
     print("\nMenu do Gerenciador de Contatos:")
@@ -70,6 +77,11 @@ while True:
 
     elif escolha == 5:
         ver_contatos_favoritos(contatos)
+
+    elif escolha == 6:
+        indice_contato = int(input("Digite o número do contato que você deseja excluir: "))
+        deletar_contato(contatos, indice_contato)
+        ver_contatos(contatos)   
 
     elif escolha == 7:
         break

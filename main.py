@@ -11,6 +11,14 @@ def ver_contatos(contatos):
         print(f"{indice}. {contato["Nome"]}, Telefone: {contato["Telefone"]}, E-mail: {contato["E-mail"]}, Favorito: [{status}]")
     return
 
+def atualizar_nome_contato(contatos, indice_contato, novo_nome):
+    if indice_contato - 1 >= 0 and indice_contato - 1 < len(contatos):
+        contatos[indice_contato - 1]["Nome"] = novo_nome
+        print(f"Nome {indice_contato} atualizado(a) para {novo_nome}!")
+    else:
+        print("Índice do contato inválido.")
+    return
+
 contatos = []
 while True:
     print("\nMenu do Gerenciador de Contatos:")
@@ -32,6 +40,12 @@ while True:
 
     elif escolha == 2:
         ver_contatos(contatos)
+    
+    elif escolha == 3:
+        ver_contatos(contatos)
+        indice_contato = int(input("Digite o número do contato que você deseja atualizar: "))
+        novo_nome = input("Digite o novo nome do contato: ")
+        atualizar_nome_contato(contatos, indice_contato, novo_nome)
 
     elif escolha == 7:
         break

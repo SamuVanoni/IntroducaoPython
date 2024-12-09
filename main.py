@@ -28,6 +28,13 @@ def marcar_desmarcar_favorito(contatos, indice_contato):
         print(f"Contato {indice_contato} foi marcado(a) como favorito!")
     return
 
+def ver_contatos_favoritos(contatos):
+    print("\nLista de contatos favoritados:")
+    for indice, contato in enumerate(contatos, start=1):
+        if contato["Favorito"]:
+            print(f"{indice}. {contato["Nome"]}, Telefone: {contato["Telefone"]}, E-mail: {contato["E-mail"]}, Favorito: [✓]")
+    return
+
 contatos = []
 while True:
     print("\nMenu do Gerenciador de Contatos:")
@@ -60,6 +67,9 @@ while True:
         ver_contatos(contatos)
         indice_contato = int(input("Digite o número do contato que você deseja marcar/desmarcar de favorito: "))
         marcar_desmarcar_favorito(contatos, indice_contato)
+
+    elif escolha == 5:
+        ver_contatos_favoritos(contatos)
 
     elif escolha == 7:
         break

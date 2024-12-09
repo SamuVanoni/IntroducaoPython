@@ -19,6 +19,15 @@ def atualizar_nome_contato(contatos, indice_contato, novo_nome):
         print("Índice do contato inválido.")
     return
 
+def marcar_desmarcar_favorito(contatos, indice_contato):
+    if contatos[indice_contato - 1]["Favorito"] == True:
+        contatos[indice_contato - 1]["Favorito"] = False
+        print(f"Contato {indice_contato} foi desmarcado(a) como favorito!")
+    else:
+        contatos[indice_contato - 1]["Favorito"] = True
+        print(f"Contato {indice_contato} foi marcado(a) como favorito!")
+    return
+
 contatos = []
 while True:
     print("\nMenu do Gerenciador de Contatos:")
@@ -46,6 +55,11 @@ while True:
         indice_contato = int(input("Digite o número do contato que você deseja atualizar: "))
         novo_nome = input("Digite o novo nome do contato: ")
         atualizar_nome_contato(contatos, indice_contato, novo_nome)
+
+    elif escolha == 4:
+        ver_contatos(contatos)
+        indice_contato = int(input("Digite o número do contato que você deseja marcar/desmarcar de favorito: "))
+        marcar_desmarcar_favorito(contatos, indice_contato)
 
     elif escolha == 7:
         break
